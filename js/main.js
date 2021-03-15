@@ -1,7 +1,7 @@
 let app = new Vue({
     el: "#vueApp",
     data: {
-        welcomeMessage: 'Hello World!'
+        welcomeMessage: 'The Introductory Application'
     },
     methods: {
 
