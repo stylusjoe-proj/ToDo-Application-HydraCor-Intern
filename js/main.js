@@ -23,7 +23,7 @@ let app = new Vue({
     },
     methods: {
         markComplete() {
-            this.todos.completed = !this.todos.completed;
+            this.todo.completed = !this.todo.completed;
         }
     },
     mounted() {
@@ -32,9 +32,9 @@ let app = new Vue({
 });
 
 function deleteItemFunction() {
-
+    console.log(123)
 }
 
 function addItemFunction() {
-
+    console.log(321)
 }
