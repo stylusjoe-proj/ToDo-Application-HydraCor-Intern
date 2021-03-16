@@ -2,15 +2,27 @@ let app = new Vue({
     el: "#vueApp",
     data: {
         todos: [
-            { text: 'Configure OSX Dev. Environment' },
-            { text: 'Learn Vue' },
-            { text: 'Introduce Persistent Storage' }
+            {
+                id: 1,
+                text: 'Configure OSX Dev. Environment',
+                completed: true
+            },
+            {
+                id: 2,
+                text: 'Learn Vue',
+                completed: false
+            },
+            {
+                id: 3,
+                text: 'Introduce Persistent Storage',
+                completed: false
+            }
         ],
         welcomeMessage: 'The Introductory Application',
     },
     methods: {
         markComplete() {
-            console.log(123)
+            this.todos.completed = !this.todos.completed;
         }
     },
     mounted() {

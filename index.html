@@ -13,7 +13,7 @@
             <input class="welcome" v-model="welcomeMessage" />
             </br>
             <ol>
-                <li v-for="todo in todos"> {{ todo.text }} </li>
+                <li v-bind:key="todo.id" v-bind:class="{'is-complete':todo.completed}" v-for="todo in todos"> {{ todo.text }} </li>
             </ol>
 
             <h3> Complete Your Item[s]</h3>
