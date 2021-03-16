@@ -9,7 +9,9 @@ let app = new Vue({
         welcomeMessage: 'The Introductory Application',
     },
     methods: {
-
+        markComplete() {
+            console.log(123)
+        }
     },
     mounted() {
 

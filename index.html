@@ -15,6 +15,15 @@
             <ol>
                 <li v-for="todo in todos"> {{ todo.text }} </li>
             </ol>
+
+            <h3> Complete Your Item[s]</h3>
+
+            <label> One. </label>
+            <input type="checkbox" v-on:change="markComplete" />
+            <label> Two. </label>
+            <input type="checkbox" v-on:change="markComplete" />
+            <label> Three. </label>
+            <input type="checkbox" v-on:change="markComplete" />
         </div>
 
 
