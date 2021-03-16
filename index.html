@@ -10,13 +10,12 @@
     <body>
         <div id="vueApp">
             <h1 class="welcome">{{welcomeMessage}}</h1>
-            <input class="welcome" v-model="welcomeMessage" />
             </br>
             <ol>
                 <li v-bind:key="todo.id" v-bind:class="{'is-complete':todo.completed}" v-for="todo in todos"> {{ todo.text }} </li>
             </ol>
 
-            <h3> Complete Your Item[s]</h3>
+            <h3> Complete Your Item[s] </h3>
 
             <label> One. </label>
             <input type="checkbox" v-on:change="markComplete" />
@@ -24,6 +23,12 @@
             <input type="checkbox" v-on:change="markComplete" />
             <label> Three. </label>
             <input type="checkbox" v-on:change="markComplete" />
+
+            <h3> Add Item[s] </h3>
+            <input class="addinput" v-model="inputText" />
+            <button class="button" onclick="addItemFunction()" id="btn1">Add/Edit</button>
+            <button class="button" onclick="deleteItemFunction()" id="btn2">Refresh Page</button>
+
         </div>
 
 

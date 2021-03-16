@@ -19,6 +19,7 @@ let app = new Vue({
             }
         ],
         welcomeMessage: 'The Introductory Application',
+        inputText:'blank'
     },
     methods: {
         markComplete() {
@@ -29,3 +30,11 @@ let app = new Vue({
 
     },
 });
+
+function deleteItemFunction() {
+
+}
+
+function addItemFunction() {
+
+}
