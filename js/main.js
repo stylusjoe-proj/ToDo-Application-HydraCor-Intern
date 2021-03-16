@@ -1,7 +1,12 @@
 let app = new Vue({
     el: "#vueApp",
     data: {
-        welcomeMessage: 'The Introductory Application'
+        todos: [
+            { text: 'Configure OSX Dev. Environment' },
+            { text: 'Learn Vue' },
+            { text: 'Introduce Persistent Storage' }
+        ],
+        welcomeMessage: 'The Introductory Application',
     },
     methods: {
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -11,6 +11,10 @@
         <div id="vueApp">
             <h1 class="welcome">{{welcomeMessage}}</h1>
             <input class="welcome" v-model="welcomeMessage" />
+            </br>
+            <ol>
+                <li v-for="todo in todos"> {{ todos.text }} </li>
+            </ol>
         </div>
 
 
