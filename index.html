@@ -11,30 +11,70 @@
         <div id="vueApp">
             <h1 class="welcome">{{welcomeMessage}}</h1>
             <h3> All Item[s] on List </h3>
-            <ol>
-                <li v-bind:key="todo.id" v-for="todo in todos" v-bind:class="{'is-complete':todo.completed}"> {{ todo.text }} </li>
-            </ol>
+            <ul>
+                <li v-for="todo in todos"
+                    v-bind:key="todo.id"
+                    v-bind:class="{'is-complete':todo.completed}"> {{ todo.text }}
+                </li>
+            </ul>
             </br>
 
             <h3> Item[s] remaining on List </h3>
-            <ol>
-                <li v-bind:key="todo.id" v-for="todo in todos" v-bind:class="{'is-complete':todo.completed}" v-if="!todo.completed"> {{ todo.text }} </li>
-            </ol>
+            <ul>
+                <li
+                    v-for="todo in todos"
+                    v-bind:key="todo.id"
+                    v-if="!todo.completed"
+                    v-on:click = "markComplete()"> {{ todo.text }}
+                </li>
+            </ul>
 
             <h3> Complete Your Item[s] </h3>
+            <!--
+                <label for="checkboxOne"> One. </label>
+                <input id="checkboxOne" type="checkbox" v-on:change="markComplete" />
+                <label for="checkboxTwo"> Two. </label>
+                <input id="checkboxTwo" type="checkbox" v-on:change="markComplete" />
+                <label for="checkboxThree"> Three. </label>
+                <input id="checkboxThree" type="checkbox" v-on:change="markComplete" />
+        -->
+            <label
+                   for="completeInput"> Id Completed:
+            </label>
+            <input
+                   class="addinput"
+                   id="completeInput"
+                   type="text"
+                   v-model="inputNumber" />
 
-            <label for="checkboxOne"> One. </label>
-            <input id="checkboxOne" type="checkbox" v-on:change="markComplete" />
-            <label for="checkboxTwo"> Two. </label>
-            <input id="checkboxTwo" type="checkbox" v-on:change="markComplete" />
-            <label for="checkboxThree"> Three. </label>
-            <input id="checkboxThree" type="checkbox" v-on:change="markComplete" />
+            <button
+                    class="button"
+                    id="btn2"
+                    v-on:click="markComplete">Completed
+            </button>
+
             <h3> Add Item[s] </h3>
-            <label for="addinput"> Add Item Here: </label>
-            <input class="addinput" id="addinput" v-model="inputText" />
-            <button class="button" @click="addItem()" id="btn1">Add</button>
-            <button class="button" onclick="" id="btn2">2nd Function</button>
-            <button class="button" @click="window.location.reload()" id="btn1">Reload Page</button>
+            <label
+                   for="addinput"> Add Item Here:
+            </label>
+
+            <input
+                   class="addinput"
+                   id="addinput"
+                   v-model="inputText" />
+
+            <button
+                    class="button"
+                    v-on:click="addItem()"
+                    id="btn1">Add
+            </button>
+
+
+            <button
+                    class="button"
+                    v-on:click="window.location.reload()"
+                    id="btn1"> Reload Page
+            </button>
 
         </div>
 
