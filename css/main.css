@@ -13,27 +13,8 @@ input.welcome {
     text-align: center;
 }
 
-.todo-items {
-    background: #f4f4f4;
-    padding: 10px;
-    border-bottom: 1px #ccc dotted;
-}
-
 .is-complete {
     text-decoration: line-through;
-}
-
-.del {
-    background: #ff0000;
-    color: #fff;
-    border: none;
-    padding: 5px 9px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-h1.addinput {
-    
 }
 
 .button {
@@ -44,4 +25,13 @@ h1.addinput {
     text-decoration: none;
     display: inline-block;
     font-size: 11px;
+}
+
+.del {
+    background: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    border-radius: 50%;
+    cursor: pointer;
 }
