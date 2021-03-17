@@ -17,17 +17,16 @@
 
             <h3> Complete Your Item[s] </h3>
 
-            <label> One. </label>
-            <input type="checkbox" v-on:change="markComplete" />
-            <label> Two. </label>
-            <input type="checkbox" v-on:change="markComplete" />
-            <label> Three. </label>
-            <input type="checkbox" v-on:change="markComplete" />
-
+            <label for="checkboxOne"> One. </label>
+            <input id="checkboxOne" type="checkbox" v-on:change="markComplete" />
+            <label for="checkboxTwo"> Two. </label>
+            <input id="checkboxTwo" type="checkbox" v-on:change="markComplete" />
+            <label for="checkboxThree"> Three. </label>
+            <input id="checkboxThree" type="checkbox" v-on:change="markComplete" />
             <h3> Add Item[s] </h3>
-            <input class="addinput" v-model="inputText" />
-            <button class="button" @click="addItemFunction()" id="btn1">Add/Edit</button>
-            <button class="button" onclick="deleteItemFunction()" id="btn2">Refresh Page</button>
+            <input class="addinput" id="addinput" v-model="inputText" />
+            <button class="button" @click="localStorage.setItem('item', inputText); console.log(inputText)" id="btn1">Add/Edit</button>
+            <button class="button" onclick="let thisItem = localStorage.getItem('item'); console.log(thisItem)" id="btn2">2nd Function</button>
 
         </div>
 
