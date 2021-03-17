@@ -27,9 +27,18 @@ let app = new Vue({
             this.todos.completed = !this.todos.completed;
             console.log(test123)
         },
-        getItem() {
-            let thisItem = localStorage.getItem('item');
-            console.log(thisItem)
+        addItem() {
+            var i = 4;
+            while (i < 10) {
+                app.todos.push({ id: i, text: app.inputText, completed: false })
+                i++;
+                break;
+            }
+        },
+        deleteItem() {
+            // if todos id = todos number then delete
+
+            
         }
     },
     mounted() {
@@ -45,7 +54,8 @@ function deleteItemFunction() {
     console.log(123)
 }
 
-function addItemFunction() {
+function addItemFunctionToLocalStorage() {
+    localStorage.setItem('item', inputText); console.log(inputText)
     console.log(321)
 }
 
@@ -54,7 +64,7 @@ function addItem() {
     localStorage.setItem('item', input);
 }
 
-function getItem() {
+function getItemFunctionFromLocalStorage() {
     let thisItem = localStorage.getItem('item');
     console.log(thisItem)
 }
