@@ -15,37 +15,46 @@ let app = new Vue({
             {
                 id: 3,
                 text: 'Introduce Persistent Storage',
-                completed: false
+                completed: true
             }
 
         ],
         welcomeMessage: 'The Introductory Application',
-        inputText: ''
+        inputText: '',
+        inputNumber: 0
     },
     methods: {
         markComplete() {
-            this.todos.completed = !this.todos.completed;
-            console.log(test123)
+            /*
+            this.$nextTick(function () {
+                this.$set(todos.completed, this.inputNumber, !todos.completed);
+                Vue.set(todos.completed, this.inputNumber, !todos.completed)
+                this.$forceUpdate();
+            });
+            */
         },
         addItem() {
+            
             var i = 4;
-            while (i < 10) {
-                app.todos.push({ id: i, text: app.inputText, completed: false })
-                i++;
-                break;
+            if (this.inputText != "") {
+                while (i < 10) {
+                    localStorage.setItem(i, this.inputText);
+                    let thisItem = localStorage.getItem(i);
+                    app.todos.push({ id: i, text: thisItem, completed: false })
+                    i++;
+                    break;
+                }
             }
+            else { }
         },
         deleteItem() {
             // if todos id = todos number then delete
-
-            
         }
     },
     mounted() {
-        this.$nextTick(function () {
-            /* addItem() */
-        });
-    },
+        
+    }
+    
 });
 
 
