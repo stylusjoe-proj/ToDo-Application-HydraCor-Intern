@@ -14,8 +14,16 @@
             <ul>
                 <li v-for="todo in todos"
                     v-bind:key="todo.id"
-                    v-bind:class="{'is-complete':todo.completed}"> {{ todo.text }}
+                    v-bind:class="{'is-complete':todo.completed}">
+                    {{ todo.text }}
+
+                <button class="button"
+                        id="btn2"
+                        v-on:click="todo.completed = !todo.completed">
+                    Complete
+                </button>
                 </li>
+                
             </ul>
             </br>
 
@@ -29,29 +37,7 @@
                 </li>
             </ul>
 
-            <h3> Complete Your Item[s] </h3>
-            <!--
-                <label for="checkboxOne"> One. </label>
-                <input id="checkboxOne" type="checkbox" v-on:change="markComplete" />
-                <label for="checkboxTwo"> Two. </label>
-                <input id="checkboxTwo" type="checkbox" v-on:change="markComplete" />
-                <label for="checkboxThree"> Three. </label>
-                <input id="checkboxThree" type="checkbox" v-on:change="markComplete" />
-        -->
-            <label
-                   for="completeInput"> Id Completed:
-            </label>
-            <input
-                   class="addinput"
-                   id="completeInput"
-                   type="text"
-                   v-model="inputNumber" />
-
-            <button
-                    class="button"
-                    id="btn2"
-                    v-on:click="markComplete">Completed
-            </button>
+            
 
             <h3> Add Item[s] </h3>
             <label
