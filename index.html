@@ -17,49 +17,53 @@
                     v-bind:class="{'is-complete':todo.completed}">
                     {{ todo.text }}
 
-                <button class="button"
-                        id="btn2"
-                        v-on:click="todo.completed = !todo.completed">
-                    Complete
-                </button>
+                    <button class="button"
+                            id="btn2"
+                            v-on:click="todo.completed = !todo.completed">
+                        Complete
+                    </button>
                 </li>
-                
+
             </ul>
             </br>
 
             <h3> Item[s] remaining on List </h3>
             <ul>
-                <li
-                    v-for="todo in todos"
+                <li v-for="todo in todos"
                     v-bind:key="todo.id"
                     v-if="!todo.completed"
-                    v-on:click = "markComplete()"> {{ todo.text }}
+                    v-on:click="markComplete()">
+                    {{ todo.text }}
                 </li>
             </ul>
 
-            
+
+
 
             <h3> Add Item[s] </h3>
-            <label
-                   for="addinput"> Add Item Here:
+            <label for="addinput">
+                Add Item Here:
             </label>
 
-            <input
-                   class="addinput"
+            <input class="addinput"
                    id="addinput"
                    v-model="inputText" />
 
-            <button
-                    class="button"
+            <button class="button"
                     v-on:click="addItem()"
-                    id="btn1">Add
+                    id="btn1">
+                Add
+            </button>
+            <button class="button"
+                    v-on:click="deleteItem()"
+                    id="btn1">
+                Delete Item
             </button>
 
-
-            <button
-                    class="button"
+            <button class="button"
                     v-on:click="window.location.reload()"
-                    id="btn1"> Reload Page
+                    id="btn1">
+                Reload Page
             </button>
 
         </div>
