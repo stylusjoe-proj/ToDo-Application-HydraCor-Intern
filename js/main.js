@@ -1,3 +1,6 @@
+Vue.prototype.$appVariable = 4;
+Vue.prototype.$arrayIndex = 0;
+
 let app = new Vue({
     el: "#vueApp",
     data: {
@@ -20,35 +23,25 @@ let app = new Vue({
 
         ],
         welcomeMessage: 'The Introductory Application',
-        inputText: '',
-        inputNumber: 0
+        inputText: ''
     },
     methods: {
-        markComplete() {
-            /*
-            this.$nextTick(function () {
-                this.$set(todos.completed, this.inputNumber, !todos.completed);
-                Vue.set(todos.completed, this.inputNumber, !todos.completed)
-                this.$forceUpdate();
-            });
-            */
-        },
         addItem() {
-            
-            var i = 4;
             if (this.inputText != "") {
-                while (i < 10) {
-                    localStorage.setItem(i, this.inputText);
-                    let thisItem = localStorage.getItem(i);
-                    app.todos.push({ id: i, text: thisItem, completed: false })
-                    i++;
-                    break;
-                }
+                    localStorage.setItem(this.$appVariable, this.inputText);
+                    let thisItem = localStorage.getItem(this.$appVariable);
+                    app.todos.push({ id: this.$appVariable, text: thisItem, completed: false })
+                    this.$appVariable++;
+                
             }
             else { }
         },
         deleteItem() {
             // if todos id = todos number then delete
+            
+                this.todos.splice(this.$arrayIndex, 1);
+                this.$arrayIndex++;
+            
         }
     },
     mounted() {
