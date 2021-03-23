@@ -20,7 +20,8 @@ let app = new Vue({
 
         ],
         welcomeMessage: 'The Introductory Application',
-        inputText: ''
+        inputText: '',
+        list: [{}]
     },
     methods: {
         addItem() {
@@ -43,12 +44,15 @@ let app = new Vue({
     },
     mounted() {
         var anyItems = localStorage.getItem(this.$storageVariable);
-        console.log(anyItems)
+
+        console.log(typeof(anyItems))
+        updatedItems = JSON.parse(anyItems);
+       
         
     },
     watch: {
         todos: function () {
-            localStorage.setItem(this.$storageVariable, this.todos);
+            localStorage.setItem(this.$storageVariable, JSON.stringify(this.todos));
             console.log(this.todos)
             
             this.$storageVariable++;
@@ -56,7 +60,6 @@ let app = new Vue({
     }
     
 });
-
 
 /*
  * ,
