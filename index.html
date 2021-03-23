@@ -13,7 +13,7 @@
             <h3> All Item[s] on List </h3>
             <ul>
                 <li v-for="todo in todos"
-                    v-bind:key="todo.id"
+                    v-bind:key="todo.text"
                     v-bind:class="{'is-complete':todo.completed}">
                     {{ todo.text }}
 
@@ -30,7 +30,7 @@
             <h3> Item[s] remaining on List </h3>
             <ul>
                 <li v-for="todo in todos"
-                    v-bind:key="todo.id"
+                    v-bind:key="todo.text"
                     v-if="!todo.completed"
                     v-on:click="markComplete()">
                     {{ todo.text }}
