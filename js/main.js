@@ -38,7 +38,13 @@ let app = new Vue({
         }
     },
     mounted() {
-     
+        if (localStorage.getItem('new list') !== null) {
+            try {
+                this.todos = JSON.parse(localStorage.getItem('new list'));
+            } catch (e) {
+                
+            }
+        }
     },
     watch: {
         todos: function () {
@@ -49,39 +55,3 @@ let app = new Vue({
     }
     
 });
-
-/*
-    watch: {
-        todos: function () {
-            localStorage.setItem(this.$storageVariable, this.todos);
-            let anyItems = localStorage.getItem(this.$storageVariable);
-            this.todos = anyItems;
-            JSON.parse(anyItems);
-        }
-    }
-
-
-function deleteItemFunction() {
-    console.log(123)
-}
-
-function addItemFunctionToLocalStorage() {
-    localStorage.setItem('item', inputText); console.log(inputText)
-    console.log(321)
-}
-
-function addItem() {
-    var input = message;
-    localStorage.setItem('item', input);
-}
-
-function getItemFunctionFromLocalStorage() {
-    let thisItem = localStorage.getItem('item');
-    console.log(thisItem)
-}
-
-localStorage.setItem(this.$appVariable, this.inputText);
-                    let thisItem = localStorage.getItem(this.$appVariable);
-                    app.todos.push({text: thisItem, completed: false })
-                    this.$appVariable++;
-*/
