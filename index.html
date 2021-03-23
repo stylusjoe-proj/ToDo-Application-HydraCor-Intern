@@ -31,8 +31,7 @@
             <ul>
                 <li v-for="todo in todos"
                     v-bind:key="todo.text"
-                    v-if="!todo.completed"
-                    v-on:click="markComplete()">
+                    v-if="!todo.completed">
                     {{ todo.text }}
                 </li>
             </ul>
