@@ -46,13 +46,13 @@ let app = new Vue({
         var anyItems = localStorage.getItem(this.$storageVariable);
 
         console.log(typeof(anyItems))
-        updatedItems = JSON.parse(anyItems);
+        // updatedItems = JSON.parse(anyItems);
        
         
     },
     watch: {
         todos: function () {
-            localStorage.setItem(this.$storageVariable, JSON.stringify(this.todos));
+            localStorage.setItem("new list", JSON.stringify(this.todos));
             console.log(this.todos)
             
             this.$storageVariable++;
