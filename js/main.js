@@ -1,22 +1,19 @@
 Vue.prototype.$appVariable = 4;
-Vue.prototype.$arrayIndex = 0;
+Vue.prototype.$storageVariable = 1;
 
 let app = new Vue({
     el: "#vueApp",
     data: {
         todos: [
             {
-                id: 1,
                 text: 'Configure OSX Dev. Environment',
                 completed: true
             },
             {
-                id: 2,
                 text: 'Learn Vue',
                 completed: false
             },
             {
-                id: 3,
                 text: 'Introduce Persistent Storage',
                 completed: true
             }
@@ -28,30 +25,51 @@ let app = new Vue({
     methods: {
         addItem() {
             if (this.inputText != "") {
-                    localStorage.setItem(this.$appVariable, this.inputText);
-                    let thisItem = localStorage.getItem(this.$appVariable);
-                    app.todos.push({ id: this.$appVariable, text: thisItem, completed: false })
-                    this.$appVariable++;
-                
+                localStorage.setItem(this.$appVariable, this.inputText);
+                let thisItem = localStorage.getItem(this.$appVariable);
+                app.todos.push({ text: thisItem, completed: false })
+                this.$appVariable++;
+
             }
             else { }
         },
         deleteItem() {
             // if todos id = todos number then delete
-            
-                this.todos.splice(this.$arrayIndex, 1);
-                this.$arrayIndex++;
-            
+
+            this.todos.splice(this.todos.length - 1, 1);
+           
+
         }
     },
     mounted() {
+        var anyItems = localStorage.getItem(this.$storageVariable);
+        console.log(anyItems)
         
+    },
+    watch: {
+        todos: function () {
+            localStorage.setItem(this.$storageVariable, this.todos);
+            console.log(this.todos)
+            
+            this.$storageVariable++;
+        }
     }
     
 });
 
 
 /*
+ * ,
+    watch: {
+        todos: function () {
+            localStorage.setItem(this.$storageVariable, this.todos);
+            let anyItems = localStorage.getItem(this.$storageVariable);
+            this.todos = anyItems;
+            JSON.parse(anyItems);
+        }
+    }
+
+
 function deleteItemFunction() {
     console.log(123)
 }
@@ -70,4 +88,9 @@ function getItemFunctionFromLocalStorage() {
     let thisItem = localStorage.getItem('item');
     console.log(thisItem)
 }
+
+localStorage.setItem(this.$appVariable, this.inputText);
+                    let thisItem = localStorage.getItem(this.$appVariable);
+                    app.todos.push({text: thisItem, completed: false })
+                    this.$appVariable++;
 */
