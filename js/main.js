@@ -8,7 +8,7 @@ let app = new Vue({
             },
             {
                 text: 'Learn Vue',
-                completed: false
+                completed: true
             },
             {
                 text: 'Introduce Persistent Storage',
