@@ -1,6 +1,3 @@
-Vue.prototype.$appVariable = 4;
-Vue.prototype.$storageVariable = 1;
-
 let app = new Vue({
     el: "#vueApp",
     data: {
@@ -20,16 +17,14 @@ let app = new Vue({
 
         ],
         welcomeMessage: 'The Introductory Application',
-        inputText: '',
-        list: [{}]
+        inputText: ''
     },
     methods: {
         addItem() {
             if (this.inputText != "") {
-                localStorage.setItem(this.$appVariable, this.inputText);
-                let thisItem = localStorage.getItem(this.$appVariable);
-                app.todos.push({ text: thisItem, completed: false })
-                this.$appVariable++;
+               
+                app.todos.push({ text: this.inputText, completed: false })
+            
 
             }
             else { }
@@ -43,26 +38,19 @@ let app = new Vue({
         }
     },
     mounted() {
-        var anyItems = localStorage.getItem(this.$storageVariable);
-
-        console.log(typeof(anyItems))
-        // updatedItems = JSON.parse(anyItems);
-       
-        
+     
     },
     watch: {
         todos: function () {
-            localStorage.setItem("new list", JSON.stringify(this.todos));
+            localStorage.setItem('new list', JSON.stringify(this.todos));
             console.log(this.todos)
             
-            this.$storageVariable++;
         }
     }
     
 });
 
 /*
- * ,
     watch: {
         todos: function () {
             localStorage.setItem(this.$storageVariable, this.todos);
