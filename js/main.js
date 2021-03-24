@@ -2,7 +2,11 @@ let app = new Vue({
     el: "#vueApp",
     data: {
         todos: [
-            
+            {
+                text: 'Dev. Internship ToDo Application',
+                completed: false
+            }
+
         ],
         welcomeMessage: 'The Introductory Application',
         inputText: ''
